@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Dark theme */
+.theme-dark {
+	--color: #DDD;
+	--dark: #111;
+	--medium: #222;
+	--light: #333;
+	--lightest: #3E3E3E;
+}
+
+/* Light theme */
+.theme-light {
+	--color: #111;
+	--dark: #E3E5E8;
+	--medium: #FCFCFC;
+	--light: #AAA;
+	--lightest: #929292;
+}
+
+/* Both themes */
+html {
+	--player1: #FFDA02;
+	--player2: #D02B27;
+}
+
+/* Body */
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: var(--dark);
+	color: var(--color);
+	font-family: 'Open Sans', sans-serif;
+}
+
+.material-icons {
+	font-size: unset;
+}
+
+/* Game board */
+div#game {
+	margin: 0 auto;
+	border: 1px solid var(--light);
+	border-radius: 1em;
+	display: grid;
+	grid-template-rows: 6vmin repeat(6, 12vmin);
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Row */
+div#game > div {
+	display: grid;
+	grid-template-columns: repeat(7, 12vmin);
+}
+
+div#droppers {
+	height: 6vmin;
+	border-bottom: 1px solid var(--light);
+}
+
+/* Column cell */
+div#game > div > div {
+	padding: 1vmin;
+}
+
+div#droppers > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4vmin;
+}
+
+div#droppers > div > .material-icons {
+	cursor: pointer;
+	transition: transform 100ms ease;
+}
+
+div#droppers > div > .material-icons:hover {
+	transform: scale(1.25);
+}
+
+/* Pieces */
+.p1, .p2 {
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+	animation: dropin 200ms ease;
+}
+
+.p1 {
+	background-color: var(--player1);
+}
+
+.p2 {
+	background-color: var(--player2);
+}
+
+@keyframes dropin {
+	0% {
+		transform: translateY(-20vh);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/* Notifications */
+div#notifications {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+div.notification {
+	border-radius: 1em;
+	background-color: var(--medium);
+	width: 50%;
+	margin: 0.5em auto;
+	padding: 0.5em 1em;
+	word-break: break-all;
+	animation-name: notificationAppear;
+	animation-duration: 0.25s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+
+div.notification > span.close {
+	float: right;
+	margin: 0 0 0.5em 0.5em;
+	cursor: pointer;
+	opacity: 0.75;
+}
+
+div.notification.win {background-color: #24AA58}
+div.notification.lose {background-color: #f0564b}
+
+@keyframes notificationAppear {
+	0% {
+		transform: translateY(-150%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+/* Input */
+input[type=text] {
+	max-width: 500px !important;
+	width: 100%;
+	border-radius: 0.5em;
+	border-color: var(--light);
+	border-width: 1px;
+	border-style: solid;
+	font-size: 2.5em;
+	padding: 0.5em;
+	background-color: transparent;
+	color: var(--color);
+	outline: none;
+}
+
+input[type=text]:focus {
+	border-color: var(--lightest);
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+form#join {
+	display: flex;
+	flex-direction: row;
+}
+
+form#join > button[type=submit] {
+	margin-left: 1em;
+}
+
+button[type=submit] > span.material-icons {
+	font-size: 3em;
+	color: var(--light);
+}
+
+button[type=submit] > span.material-icons:active {
+	color: var(--lightest);
+}

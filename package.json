@@ -1,0 +1,24 @@
+{
+  "name": "ConnectFour",
+  "version": "1.0.0",
+  "description": "A game of Connect Four using WebSockets",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [
+    "connect-four",
+    "websocket",
+    "game"
+  ],
+  "author": "Calum Dingwall (https://github.com/caburum)",
+  "homepage": "https://github.com/caburum/ConnectFour#readme",
+  "repository": {
+    "repository": "github:caburum/ConnectFour"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.4.5"
+  }
+}
