@@ -30,6 +30,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 0.5em;
 	height: 100vh;
 	margin: 0;
 	background-color: var(--dark);
@@ -178,6 +179,13 @@ button {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
+	color: inherit;
+}
+
+button#playerToggle {
+	border: 1px solid var(--lightest);
+	border-radius: 0.5em;
+	padding: 0.5em 0.75em;
 }
 
 form#join {

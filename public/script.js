@@ -21,6 +21,11 @@ oldBoard = [
 ];
 
 window.player = 1; // @todo: track which player is which
+$('#playerToggle').on('click', function() {
+	if (window.player == 1) window.player = 2;
+	else window.player = 1;
+	$(this).find('span').text(window.player);
+})
 
 // Message handler
 socket.onmessage = function handleMessage(rawMessage) {
